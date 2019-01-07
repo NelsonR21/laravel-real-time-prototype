@@ -36,4 +36,9 @@ class NewMessage
     {
         return new PrivateChannel('chat');
     }
+
+    public function broadcastWith()
+    {
+        return ['message' => $this->message];
+    }
 }
