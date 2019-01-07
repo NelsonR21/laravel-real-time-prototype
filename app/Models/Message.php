@@ -12,12 +12,12 @@ class Message extends Model
 
     protected $fillable = [
         'message',
-        'date',
-        'person_id'
+        'date'
+        // 'person_id'
     ];
 
-    public function user () {
-        return $this->belongsTo('App\User');
-    }
+    // public function user () {
+    //     return $this->belongsTo('App\User');
+    // }
 
 }
