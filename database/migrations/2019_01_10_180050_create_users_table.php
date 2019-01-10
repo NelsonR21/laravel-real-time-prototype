@@ -17,8 +17,15 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('user_type',['admin', 'owner', 'root']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->unsignedInteger('person_id');
+            $table->foreign('person_id')
+                ->references('id')
+                ->on('persons')
+                ->onDelete('no action')
+                ->onUpdate('no action');
             $table->rememberToken();
             $table->timestamps();
         });
