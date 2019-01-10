@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBankTable extends Migration
+class CreateFieldsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,18 @@ class CreateBankTable extends Migration
      */
     public function up()
     {
-        Schema::create('bank', function (Blueprint $table) {
+        Schema::create('fields', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('account');
-            $table->tinyInteger('account_type');
-            $table->string('bank_name');
+            $table->string('name', 100);
+            $table->string('description')->nullable();
+            $table->unsignedDecimal('amount');
             /**
              * The client can assign the value he sees fit
              */
-            $table->string('dni');
-            $table->tinyInteger('dni_type');
-            $table->string('owner');
-            $table->string('note')->nullable();
+            $table->tinyInteger('field_type');
+            $table->boolean('is_expense');
+            $table->boolean('active');
+            // $table->softDeletes();
             $table->timestamps();
         });
     }
@@ -36,6 +36,6 @@ class CreateBankTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bank');
+        Schema::dropIfExists('fields');
     }
 }

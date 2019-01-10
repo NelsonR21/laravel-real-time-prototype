@@ -23,7 +23,7 @@ class CreatePaymentsTable extends Migration
             $table->unsignedDecimal('amount');
             $table->tinyInteger('pay_type')->unsigned();
             $table->date('date');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->string('identifier');
             $table->integer('person_id')->unsigned();
             $table->foreign('person_id')
