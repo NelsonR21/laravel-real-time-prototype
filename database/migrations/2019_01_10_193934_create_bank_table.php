@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonsTable extends Migration
+class CreateBankTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,18 @@ class CreatePersonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('persons', function(Blueprint $table) {
+        Schema::create('bank', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('lastname');
-            $table->string('dni');
-            // $table->enum('dni_type', ['V','J','E']);
+            $table->string('account');
+            $table->tinyInteger('account_type');
+            $table->string('bank_name');
             /**
              * The client can assign the value he sees fit
              */
+            $table->string('dni');
             $table->tinyInteger('dni_type');
+            $table->string('owner');
+            $table->string('note');
             $table->timestamps();
         });
     }
@@ -34,6 +36,6 @@ class CreatePersonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persons');
+        Schema::dropIfExists('bank');
     }
 }

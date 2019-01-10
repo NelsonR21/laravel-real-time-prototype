@@ -16,6 +16,9 @@ class CreatePaymentsTable extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->increments('id');
             // $table->enum('status', ['ONHOLD','CONFIRMED','PROCESSED']);
+            /**
+             * The client can assign the value he sees fit
+             */
             $table->tinyInteger('status')->unsigned();
             $table->unsignedDecimal('amount');
             $table->tinyInteger('pay_type')->unsigned();
