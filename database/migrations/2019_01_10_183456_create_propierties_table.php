@@ -15,12 +15,12 @@ class CreatePropiertiesTable extends Migration
     {
         Schema::create('propierties', function (Blueprint $table) {
             $table->increments('id');
-            $table->strign('identifier', 100);
+            $table->string('identifier', 100);
             $table->string('description')->nullable();
             $table->integer('person_id')->unsigned();
             $table->foreign('person_id')
                 ->references('id')
-                ->on('person')
+                ->on('persons')
                 ->onDelete('no action')
                 ->onUpdate('no action');
             $table->timestamps();

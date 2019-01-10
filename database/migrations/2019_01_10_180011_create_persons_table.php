@@ -30,6 +30,6 @@ class CreatePersonsTable extends Migration
      */
     public function down()
     {
-        Shema::dropIfExists('persons');
+        Schema::dropIfExists('persons');
     }
 }
