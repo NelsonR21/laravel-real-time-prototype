@@ -17,6 +17,7 @@ class CreateExpensesTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->string('note')->nullable();
+            $table->integer('reserved_fund');
             $table->integer('person_id')->unsigned();
             $table->foreign('person_id')
                 ->references('id')
